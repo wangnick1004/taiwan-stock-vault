@@ -40,6 +40,7 @@ jobs:
         continue-on-error: true
         env:
           ONLY_CODES: ${{ github.event.inputs.only }}
+          SHOW_KEYS: ${{ github.event.inputs.only }}
         run: python scripts/update_financials.py --vault .
       - name: 推回 repo
         run: |

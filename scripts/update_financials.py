@@ -25,7 +25,7 @@ REVENUE = [TWSE + "t187ap05_L", TPEX + "mopsfin_t187ap05_O"]
 # 綜合損益表依產業分成多份：一般業、銀行、證券、金控、保險、異業
 INCOME = [TWSE + f"t187ap06_L_{k}" for k in ("ci", "basi", "bd", "fh", "ins", "mim")] + \
          [TPEX + f"mopsfin_t187ap06_O_{k}" for k in ("ci", "basi", "bd", "fh", "ins", "mim")]
-DIVIDEND = [TWSE + "t187ap45_L", TPEX + "mopsfin_t187ap45_O"]
+DIVIDEND = [TWSE + "t187ap45_L", TPEX + "mopsfin_t187ap39_O"]  # 櫃買中心的是「董事會通過」版本
 
 FIELDS = ["月營收年月", "月營收", "月營收年增率", "月營收月增率", "累計營收年增率",
           "財報季度", "毛利率", "營業利益率", "淨利率", "累計EPS",
@@ -67,12 +67,14 @@ def load(urls: list[str], label: str) -> list[dict]:
         try:
             data = fetch_json(u)
         except Exception as e:  # noqa: BLE001
-            if u.endswith(("_ci", "05_L", "05_O", "45_L", "45_O")):
+            if u.endswith(("_ci", "05_L", "05_O", "45_L", "39_O")):
                 warnings.append(f"{label}抓取失敗 {u.rsplit('/', 1)[1]}：{e}")
             continue
         if isinstance(data, list):
-            if data and not code_of(data[0]):
+            if data and not any(code_of(r) for r in data[:50]):
                 warnings.append(f"{label} {u.rsplit('/', 1)[1]} 找不到公司代號欄位：{list(data[0])[:8]}")
+            if data and os.environ.get("SHOW_KEYS"):
+                print(u.rsplit('/', 1)[1], list(data[0]))
             rows += data
     return rows
 
@@ -126,12 +128,12 @@ def dividend_fields(rows: list[dict]) -> dict[str, dict]:
     for r in rows:
         code = code_of(r)
         period = str(get(r, "股利所屬期間") or "")
-        y = roc_year(period[:3]) if re.match(r"\d{7}", period) else roc_year(str(get(r, "股利年度") or ""))
+        y = roc_year(period[:3]) if re.match(r"\d{7}", period) else roc_year(str(get(r, "股利年度", "Year") or "")[:3])
         if not (code and y):
             continue
-        cash = sum(num(get(r, k)) or 0 for k in (
-            "股東配發-盈餘分配之現金股利(元/股)", "股東配發-法定盈餘公積發放之現金(元/股)",
-            "股東配發-資本公積發放之現金(元/股)"))
+        # 每股現金：盈餘分配＋法定盈餘公積＋資本公積發放的現金（欄位名稱上市櫃略有不同）
+        cash = sum(num(v) or 0 for k, v in r.items()
+                   if "現金" in k and "元/股" in k.replace("（", "(").replace("）", ")"))
         per.setdefault(code, {}).setdefault(y, 0.0)
         per[code][y] += cash
     out = {}
