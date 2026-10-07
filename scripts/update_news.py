@@ -364,8 +364,8 @@ def load_watchlist(vault: Path, notes: dict[str, Path]) -> list[str]:
         codes = re.findall(r"^\s*[-*]\s*\[*\s*(\d{4,6}[A-Z]?)", f.read_text("utf-8"), re.M)
         if codes:
             return codes
-    # 預設：筆記庫裡已經有內容的個股筆記（大於 300 bytes，排除空殼）
-    return [c for c, p in notes.items() if p.stat().st_size > 300]
+    # 沒有關注清單時：內容最多的前 60 份個股筆記
+    return sorted(notes, key=lambda c: notes[c].stat().st_size, reverse=True)[:60]
 
 
 def main() -> int:
