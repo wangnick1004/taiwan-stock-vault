@@ -420,7 +420,7 @@ def main() -> int:
     titles, added = {}, {}
     for code, its in by_code.items():
         note = notes.get(code)
-        title = note.stem if note else f"{code}{companies[code]['name']}"
+        title = note.stem if note else f"{code}{companies[code]['name']}".replace("*", "")  # 沒有筆記時才用官方簡稱，去掉 * 以免連結失效
         titles[code] = title
         new = update_company(vault, code, title, companies[code]["market"], its, note, now)
         if new:
