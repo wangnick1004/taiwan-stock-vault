@@ -26,7 +26,8 @@ REVENUE = [TWSE + "t187ap05_L", TPEX + "mopsfin_t187ap05_O"]
 # 綜合損益表依產業分成多份：一般業、銀行、證券、金控、保險、異業
 INCOME = [TWSE + f"t187ap06_L_{k}" for k in ("ci", "basi", "bd", "fh", "ins", "mim")] + \
          [TPEX + f"mopsfin_t187ap06_O_{k}" for k in ("ci", "basi", "bd", "fh", "ins", "mim")]
-DIVIDEND = [TWSE + "t187ap45_L", TPEX + "mopsfin_t187ap39_O"]  # 櫃買中心的是「董事會通過」版本
+# 櫃買中心 OpenAPI 的股利資料（mopsfin_t187ap39_O）停在 2021 年，上櫃公司暫無股利欄位
+DIVIDEND = [TWSE + "t187ap45_L"]
 
 FIELDS = ["月營收年月", "月營收", "月營收年增率", "月營收月增率", "累計營收年增率",
           "財報季度", "毛利率", "營業利益率", "淨利率", "累計EPS",
@@ -74,7 +75,7 @@ def load(urls: list[str], label: str) -> list[dict]:
         try:
             data = fetch_json(u)
         except Exception as e:  # noqa: BLE001
-            if u.endswith(("_ci", "05_L", "05_O", "45_L", "39_O")):
+            if u.endswith(("_ci", "05_L", "05_O", "45_L")):
                 warnings.append(f"{label}抓取失敗 {u.rsplit('/', 1)[1]}：{e}")
             continue
         if isinstance(data, list):
@@ -144,8 +145,11 @@ def dividend_fields(rows: list[dict]) -> dict[str, dict]:
         per.setdefault(code, {}).setdefault(y, 0.0)
         per[code][y] += cash
     out = {}
+    this_year = dt.date.today().year
     for code, years in per.items():
         y = max(years)
+        if y < this_year - 2:  # 過舊的資料不寫
+            continue
         out[code] = {"現金股利": r1(years[y], 4), "股利所屬年度": y}
     return out
 
@@ -167,7 +171,14 @@ def apply(note: Path, values: dict, now: dt.datetime) -> bool:
     lines = body.split("\n") if body else []
     existing = {ln.split(":", 1)[0].strip(): i for i, ln in enumerate(lines) if ":" in ln and not ln.startswith(" ")}
     changed = False
+    for k in [k for k, v in values.items() if v is None and k in existing]:
+        lines[existing[k]] = None
+        changed = True
+    lines = [ln for ln in lines if ln is not None] if changed else lines
+    existing = {ln.split(":", 1)[0].strip(): i for i, ln in enumerate(lines) if ":" in ln and not ln.startswith(" ")}
     for k, v in values.items():
+        if v is None:
+            continue
         new = f"{k}: {fmt(v)}"
         if k in existing:
             if lines[existing[k]] != new:
@@ -222,7 +233,7 @@ def main() -> int:
 
     updated = 0
     for code, note in notes.items():
-        values = {}
+        values = {"現金股利": None, "股利所屬年度": None}  # 沒有股利資料時移除舊值
         for src in (rev, inc, div):
             values.update({k: v for k, v in src.get(code, {}).items() if v is not None})
         if values and apply(note, values, now):
