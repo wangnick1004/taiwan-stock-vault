@@ -42,9 +42,17 @@ BLOCK_START = "<!-- news:start（自動產生，請勿手動編輯此範圍） -
 BLOCK_END = "<!-- news:end -->"
 BLOCK_RE = re.compile(r"<!-- news:start[^>]*-->.*?<!-- news:end -->", re.S)
 SECTION_HEADING = "## 最新新聞"
-SKIP_DIRS = {".git", ".obsidian", ".github", ".trash", NEWS_DIR}
+SKIP_DIRS = {".git", ".obsidian", ".github", ".trash", NEWS_DIR, "海外"}
 
 warnings: list[str] = []
+
+
+def write_text(p: Path, text: str) -> None:
+    """先寫暫存檔再 os.replace，避免同步中的檔案被寫到一半。"""
+    p.parent.mkdir(parents=True, exist_ok=True)
+    tmp = p.with_name(f".{p.name}.tmp")
+    tmp.write_text(text, "utf-8")
+    os.replace(tmp, p)
 
 
 @dataclass(frozen=True)
@@ -183,9 +191,12 @@ def cnyes_news(since: str, companies: dict) -> list[Item]:
         for n in block.get("data") or []:
             ts = dt.datetime.fromtimestamp(int(n.get("publishAt", 0)), TZ)
             url = f"https://news.cnyes.com/news/id/{n.get('newsId')}"
+            title = n.get("title", "")
             for code in cnyes_codes(n) & companies.keys():
+                if companies[code]["name"] not in title and code not in title:
+                    continue  # 大盤綜合報導只是順帶標記，略過
                 items.append(Item(code, ts.strftime("%Y-%m-%d"), ts.strftime("%H:%M"),
-                                  "📰 媒體", "鉅亨網", n.get("title", ""), url))
+                                  "📰 媒體", "鉅亨網", title, url))
         if page >= int(block.get("last_page") or 1):
             break
         page += 1
@@ -270,8 +281,7 @@ def archive(vault: Path, title: str, old: dict[str, list[str]]) -> None:
         body = [f"# [[{title}]] 新聞封存 {year}", ""]
         for d in sorted(existing, reverse=True):
             body += [f"## {d}", *existing[d], ""]
-        p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_text("\n".join(body), "utf-8")
+        write_text(p, "\n".join(body))
 
 
 def update_company(vault: Path, code: str, title: str, market: str, new: list[Item],
@@ -296,8 +306,7 @@ def update_company(vault: Path, code: str, title: str, market: str, new: list[It
     if old:
         archive(vault, title, old)
         days = {d: v for d, v in days.items() if d >= cutoff}
-    p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(render_news_file(code, title, market, days, now), "utf-8")
+    write_text(p, render_news_file(code, title, market, days, now))
     if note:
         update_note_block(note, title, days, now)
     return added
@@ -322,7 +331,7 @@ def update_note_block(note: Path, title: str, days: dict[str, list[str]], now: d
         body = fm.group(1)
         body = re.sub(r"^新聞更新:.*$", stamp, body, flags=re.M) if re.search(r"^新聞更新:", body, re.M) else f"{body}\n{stamp}"
         text = f"---\n{body}\n---\n" + text[fm.end():]
-    note.write_text(text, "utf-8")
+    write_text(note, text)
 
 
 def write_daily(vault: Path, now: dt.datetime, added: dict[str, list[Item]], titles: dict[str, str]) -> None:
@@ -332,14 +341,16 @@ def write_daily(vault: Path, now: dt.datetime, added: dict[str, list[Item]], tit
     old = p.read_text("utf-8") if p.exists() else ""
     sections = []
     for code in sorted(added, key=lambda c: (-sum("重訊" in i.kind for i in added[c]), c)):
-        sections.append(f"### [[{titles[code]}]]\n" + "\n".join(i.line() for i in added[code]))
+        its = sorted(added[code], key=lambda i: (i.date, i.time), reverse=True)
+        today = f"{now:%Y-%m-%d}"
+        lines = [i.line() if i.date == today else i.line().replace("- ", f"- {i.date[5:]} ", 1) for i in its]
+        sections.append(f"### [[{titles[code]}]]\n" + "\n".join(lines))
     head = f"# {now:%Y-%m-%d} 台股新聞總覽\n"
     warn = ("> [!warning] 本次部分來源失敗\n" + "\n".join(f"> - {w}" for w in warnings) + "\n") if warnings else ""
     run = f"\n## {now:%H:%M} 更新（{len(added)} 家公司）\n\n" + ("\n\n".join(sections) if sections else "本次沒有新消息。") + "\n"
     prev = old.split("\n", 1)[1] if old.startswith("# ") else old
     prev = re.sub(r"^> \[!warning\].*?(?=\n[^>]|\Z)", "", prev, flags=re.S).lstrip("\n")
-    p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(head + warn + run + ("\n" + prev if prev else ""), "utf-8")
+    write_text(p, head + warn + run + ("\n" + prev if prev else ""))
 
 
 def load_watchlist(vault: Path, notes: dict[str, Path]) -> list[str]:
@@ -383,7 +394,7 @@ def main() -> int:
     items: list[Item] = [i for i in material_news(since) if i.code in companies]
     items += cnyes_news(since, companies)
     if not args.no_google:
-        watch = [c for c in load_watchlist(vault, notes) if c in companies]
+        watch = [c for c in load_watchlist(vault, notes) if c in companies] or sorted(only & companies.keys())
         print(f"Google 新聞關注清單：{len(watch)} 檔")
         for code in watch:
             try:
