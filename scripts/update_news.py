@@ -31,6 +31,8 @@ TWSE_MATERIAL = "https://openapi.twse.com.tw/v1/opendata/t187ap04_L"
 TPEX_MATERIAL = "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap04_O"
 CNYES_LIST = "https://api.cnyes.com/media/api/v1/newslist/category/tw_stock"
 GNEWS_RSS = "https://news.google.com/rss/search"
+GNEWS_BLOCK = ("股市爆料同學會", "CMoney投資網誌", "PTT", "Dcard", "痞客邦")
+GNEWS_MAX = 8  # 每家公司每次最多收幾則 Google 新聞
 MOPS_LINK = "https://mops.twse.com.tw/mops/#/web/t05st01"
 
 NEWS_DIR = "新聞"
@@ -214,6 +216,8 @@ def google_news(code: str, name: str, since: str) -> list[Item]:
             title = title[: -len(src) - 3]
         if name not in title and code not in title:
             continue  # 名稱沒出現在標題的多半是雜訊
+        if any(k in title or k in src for k in GNEWS_BLOCK):
+            continue  # 論壇、部落格貼文
         try:
             ts = dt.datetime.strptime(it.findtext("pubDate") or "", "%a, %d %b %Y %H:%M:%S %Z")
             ts = ts.replace(tzinfo=dt.timezone.utc).astimezone(TZ)
@@ -223,7 +227,8 @@ def google_news(code: str, name: str, since: str) -> list[Item]:
             continue
         items.append(Item(code, ts.strftime("%Y-%m-%d"), ts.strftime("%H:%M"),
                           "📰 媒體", clean(src), title, it.findtext("link") or ""))
-    return items
+    items.sort(key=lambda i: (i.date, i.time), reverse=True)
+    return items[:GNEWS_MAX]
 
 
 # ---------- 筆記庫 ----------
