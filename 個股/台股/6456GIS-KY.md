@@ -1,0 +1,38 @@
+---
+代號: "6456"
+名稱: GIS-KY
+市場: 上市
+產業: 光電業
+供應鏈位置:
+成立:
+上市日期: 2015/06/12
+ISIN: KYG3808R1011
+tags: [台股, 市場/上市, 產業/光電業]
+供應給: []
+供應商: []
+客戶: []
+新聞更新:
+---
+# 6456 GIS-KY
+
+> 上市｜[[產業索引-光電業|光電業]]｜上市（櫃）日期 2015/06/12
+
+# 第一章：企業模式與商業藍圖
+
+# 第二章：護城河深度與競爭優勢
+
+# 第三章：財務體質與盈利規模
+
+# 第四章：總體風險與地緣政治
+
+# 核心供應鏈
+
+## 最新新聞
+<!-- news:start -->
+<!-- news:end -->
+
+## 相關連結
+- [公開資訊觀測站](https://mopsov.twse.com.tw/mops/web/t05st03?step=1&firstin=1&co_id=6456)
+- [Goodinfo](https://goodinfo.tw/tw/StockDetail.asp?STOCK_ID=6456)
+- [Yahoo 股市](https://tw.stock.yahoo.com/quote/6456)
+- [鉅亨網新聞](https://www.cnyes.com/twstock/6456/news)
