@@ -10,6 +10,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import datetime as dt
 import os
 import re
@@ -58,7 +59,13 @@ def get(row: dict, *cands: str):
 
 
 def code_of(row: dict) -> str:
-    return str(get(row, "公司代號", "SecuritiesCompanyCode", "CompanyCode") or "").strip()
+    v = get(row, "公司代號", "SecuritiesCompanyCode", "CompanyCode")
+    if v is None:  # 欄位名稱可能夾雜看不見的字元
+        for k, val in row.items():
+            if re.sub(r"[^A-Za-z\u4e00-\u9fff]", "", k) in ("公司代號", "SecuritiesCompanyCode", "CompanyCode"):
+                v = val
+                break
+    return str(v or "").strip()
 
 
 def load(urls: list[str], label: str) -> list[dict]:
@@ -72,7 +79,7 @@ def load(urls: list[str], label: str) -> list[dict]:
             continue
         if isinstance(data, list):
             if data and not any(code_of(r) for r in data[:50]):
-                warnings.append(f"{label} {u.rsplit('/', 1)[1]} 找不到公司代號欄位：{list(data[0])[:8]}")
+                warnings.append(f"{label} {u.rsplit('/', 1)[1]} 找不到公司代號：{dict(list(data[0].items())[:5])}")
             if data and os.environ.get("SHOW_KEYS"):
                 print(u.rsplit('/', 1)[1], list(data[0]))
             rows += data
@@ -203,6 +210,15 @@ def main() -> int:
     inc = income_fields(load(INCOME, "綜合損益表"))
     div = dividend_fields(load(DIVIDEND, "股利"))
     print(f"月營收 {len(rev)} 家、損益表 {len(inc)} 家、股利 {len(div)} 家；筆記 {len(notes)} 份")
+
+    # 給撰寫內文用的每家摘要（含資料日期），內容沒變就不改檔
+    summary_path = vault / "_data" / "財務摘要.json"
+    summary = {c: {**rev.get(c, {}), **inc.get(c, {}), **div.get(c, {})} for c in sorted(set(rev) | set(inc) | set(div))}
+    summary = {c: v for c, v in summary.items() if not only or c in only} if only else summary
+    old = json.loads(summary_path.read_text("utf-8")).get("公司", {}) if summary_path.exists() else None
+    if summary and summary != old and not only:
+        write_text(summary_path, json.dumps({"抓取日期": f"{now:%Y-%m-%d}", "來源": "證交所、櫃買中心 OpenAPI",
+                                             "公司": summary}, ensure_ascii=False, indent=1))
 
     updated = 0
     for code, note in notes.items():
