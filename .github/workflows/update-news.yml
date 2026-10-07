@@ -1,4 +1,4 @@
-name: 更新個股新聞
+name: 更新個股新聞與財務數字
 
 on:
   schedule:
@@ -36,13 +36,19 @@ jobs:
         env:
           ONLY_CODES: ${{ github.event.inputs.only }}
         run: python scripts/update_news.py --vault . --days "${{ github.event.inputs.days || '2' }}"
+      - name: 更新財務數字（月營收、三率、EPS、股利）
+        continue-on-error: true
+        env:
+          ONLY_CODES: ${{ github.event.inputs.only }}
+          SHOW_KEYS: ${{ github.event.inputs.only }}
+        run: python scripts/update_financials.py --vault .
       - name: 推回 repo
         run: |
           git config user.name "news-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           if git diff --cached --quiet; then echo "沒有新內容"; exit 0; fi
-          git commit -m "新聞更新 $(TZ=Asia/Taipei date '+%Y-%m-%d %H:%M')"
+          git commit -m "新聞與財務更新 $(TZ=Asia/Taipei date '+%Y-%m-%d %H:%M')"
           for i in 1 2 3 4; do
             git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
             sleep $((i * 5))

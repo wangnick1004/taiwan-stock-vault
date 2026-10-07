@@ -303,6 +303,8 @@ def update_company(vault: Path, code: str, title: str, market: str, new: list[It
         days.setdefault(it.date, []).append(it.line())
         added.append(it)
     if not added:
+        if note:
+            update_note_block(note, title, days, now)
         return []
     for d in days:  # 同一天內依時間由新到舊
         days[d].sort(key=lambda x: re.search(r"\d{2}:\d{2}", x).group(0) if re.search(r"\d{2}:\d{2}", x) else "", reverse=True)
@@ -324,6 +326,9 @@ def update_note_block(note: Path, title: str, days: dict[str, list[str]], now: d
             latest.append(ln.replace("- ", f"- {d} ", 1))
     block = "\n".join([BLOCK_START, *latest[:BLOCK_ITEMS], "", f"完整紀錄：[[{title} 新聞]]", BLOCK_END])
     text = note.read_text("utf-8")
+    m = BLOCK_RE.search(text)
+    if m and m.group(0) == block:
+        return
     if BLOCK_RE.search(text):
         text = BLOCK_RE.sub(lambda _: block, text, count=1)
     elif re.search(rf"^{re.escape(SECTION_HEADING)}\s*$", text, re.M):
@@ -415,11 +420,17 @@ def main() -> int:
     titles, added = {}, {}
     for code, its in by_code.items():
         note = notes.get(code)
-        title = note.stem if note else f"{code}{companies[code]['name']}"
+        title = note.stem if note else f"{code}{companies[code]['name']}".replace("*", "")  # 沒有筆記時才用官方簡稱，去掉 * 以免連結失效
         titles[code] = title
         new = update_company(vault, code, title, companies[code]["market"], its, note, now)
         if new:
             added[code] = new
+    for code, note in notes.items():
+        if code in by_code or code not in companies:
+            continue
+        p = vault / NEWS_DIR / f"{note.stem} 新聞.md"
+        if p.exists():
+            update_note_block(note, note.stem, parse_news_file(p.read_text("utf-8")), now)
     write_daily(vault, now, added, titles)
     print(f"新增 {sum(map(len, added.values()))} 則，涉及 {len(added)} 家公司")
     for w in warnings:
