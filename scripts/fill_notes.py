@@ -98,7 +98,7 @@ def fill(note_path, content, names, date, dry, replace=False, vault=None):
     if "內文更新" in keys:
         fm_lines[keys["內文更新"]] = f"內文更新: {date}"
     else:
-        pos = keys.get("新聞更新", len(fm_lines))
+        pos = keys["名稱"] + 1 if "名稱" in keys else len(fm_lines)  # 放在名稱後，避免和自動排程改的欄位相鄰
         fm_lines.insert(pos, f"內文更新: {date}")
     for i, line in enumerate(fm_lines):
         if line.startswith("tags:") and "待校對" not in line:
