@@ -195,7 +195,7 @@ def main():
     tw = {p.stem.split(" ")[0]: p for p in (vault / "個股" / "台股").glob("*.md")}
     by_code = {}
     for stem, p in tw.items():
-        mm = re.match(r"^(\d{4,6})", stem)
+        mm = re.match(r"^(\d{4})", stem)  # 台股代號為 4 碼；91APP 這類名稱以數字開頭
         if mm:
             by_code.setdefault(mm.group(1), p)
     files = sorted(src.glob("*.md")) if src.is_dir() else [src]
