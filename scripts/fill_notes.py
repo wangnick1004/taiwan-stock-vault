@@ -192,7 +192,8 @@ def main():
     replace = "--replace" in sys.argv
     date = sys.argv[sys.argv.index("--date") + 1] if "--date" in sys.argv else "2026-10-07"
     names = {p.stem for p in vault.rglob("*.md")} | {p.name for p in vault.rglob("*.png")}
-    tw = {p.stem.split(" ")[0]: p for p in (vault / "個股" / "台股").glob("*.md")}
+    tw = {p.stem.split(" ")[0]: p for p in (vault / "個股" / "台股").glob("*.md")
+          if not re.search(r" \d+$", p.stem)}  # 略過 iCloud 衝突副本（「名稱 2.md」）
     by_code = {}
     for stem, p in tw.items():
         mm = re.match(r"^(\d{4})", stem)  # 台股代號為 4 碼；91APP 這類名稱以數字開頭
