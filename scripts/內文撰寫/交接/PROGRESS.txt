@@ -1,0 +1,2 @@
+deep_next=32
+concise_next=95
