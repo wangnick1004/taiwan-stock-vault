@@ -18,7 +18,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from update_news import TZ, fetch_json, index_notes, load_companies, warnings, write_text  # noqa: E402
+from update_news import TZ, fetch_json, index_notes, load_companies, note_matches, warnings, write_text  # noqa: E402
 
 TWSE = "https://openapi.twse.com.tw/v1/opendata/"
 TPEX = "https://www.tpex.org.tw/openapi/v1/"
@@ -212,8 +212,7 @@ def main() -> int:
     companies = load_companies()
     notes = index_notes(vault)
     if companies:  # 代號相同但名稱對不上的（海外公司）略過
-        notes = {c: p for c, p in notes.items()
-                 if c in companies and (companies[c]["name"] in p.stem or p.stem[len(c):] in companies[c]["name"])}
+        notes = {c: p for c, p in notes.items() if c in companies and note_matches(c, companies[c]["name"], p)}
     if only:
         notes = {c: p for c, p in notes.items() if c in only}
 

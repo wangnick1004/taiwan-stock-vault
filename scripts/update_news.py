@@ -245,6 +245,15 @@ def index_notes(vault: Path) -> dict[str, Path]:
     return notes
 
 
+def note_matches(code: str, name: str, note: Path) -> bool:
+    """筆記檔名跟官方簡稱對得上，或 frontmatter aliases 有列出官方簡稱（公司改名但檔名不改時）。"""
+    stem = note.stem[len(code):]
+    if name and (name in stem or stem in name):
+        return True
+    fm = re.match(r"^---\n(.*?)\n---", note.read_text("utf-8"), re.S)
+    return bool(name and fm and re.search(rf"^aliases:.*{re.escape(name)}", fm.group(1), re.M))
+
+
 def parse_news_file(text: str) -> dict[str, list[str]]:
     """把新聞檔解析成 {日期: [行...]}。"""
     days: dict[str, list[str]] = defaultdict(list)
@@ -391,9 +400,7 @@ def main() -> int:
     if companies:
         # 代號相同但名稱對不上的筆記（例如 6753夏普 是日股，台股 6753 是別家公司）不寫入
         for code in list(notes):
-            name = companies.get(code, {}).get("name", "")
-            stem = notes[code].stem[len(code):]
-            if not name or not (name in stem or stem in name):
+            if not note_matches(code, companies.get(code, {}).get("name", ""), notes[code]):
                 del notes[code]
     else:  # 兩份公司清單都抓不到時，至少處理已有筆記的公司
         companies = {c: {"name": p.stem[len(c):], "market": "未知"} for c, p in notes.items()}
@@ -420,7 +427,9 @@ def main() -> int:
     titles, added = {}, {}
     for code, its in by_code.items():
         note = notes.get(code)
-        title = note.stem if note else f"{code}{companies[code]['name']}".replace("*", "")  # 沒有筆記時才用官方簡稱，去掉 * 以免連結失效
+        if not note:  # 沒有個股筆記的公司不建新聞檔
+            continue
+        title = note.stem
         titles[code] = title
         new = update_company(vault, code, title, companies[code]["market"], its, note, now)
         if new:
