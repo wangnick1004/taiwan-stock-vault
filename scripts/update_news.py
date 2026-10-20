@@ -37,6 +37,8 @@ MOPS_LINK = "https://mops.twse.com.tw/mops/#/web/t05st01"
 
 NEWS_DIR = "新聞"
 DAILY_DIR = "新聞/每日"
+PENDING_LIST = "_data/待撰寫追蹤.txt"   # 沒有筆記、等下一則新聞再寫調研報告的公司
+PENDING_QUEUE = "_data/待撰寫佇列.md"   # 上述公司出現新聞時記在這裡，交給撰寫排程
 ARCHIVE_DIR = "新聞/封存"
 KEEP_DAYS = 90
 BLOCK_ITEMS = 5
@@ -372,6 +374,30 @@ def write_daily(vault: Path, now: dt.datetime, added: dict[str, list[Item]], tit
     write_text(p, head + warn + run + ("\n" + prev if prev else ""))
 
 
+def queue_pending(vault: Path, by_code: dict[str, list[Item]], notes: dict[str, Path]) -> int:
+    """追蹤清單裡、還沒有筆記的公司一有新聞就記進佇列（去重），回傳新增則數。"""
+    f = vault / PENDING_LIST
+    if not f.exists():
+        return 0
+    pending = dict(re.findall(r"^(\d{4,6}[A-Z]?) (\S.*)$", f.read_text("utf-8"), re.M))
+    q = vault / PENDING_QUEUE
+    old = q.read_text("utf-8") if q.exists() else ""
+    seen = {line_key(ln.split(" ", 2)[-1]) for ln in old.splitlines() if ln.startswith("- ")}
+    new = []
+    for code, its in sorted(by_code.items()):
+        if code not in pending or code in notes:
+            continue
+        for it in sorted(its, key=lambda i: (i.date, i.time), reverse=True):
+            if it.key not in seen:
+                seen.add(it.key)
+                new.append(f"- {pending[code]} {it.date} {it.line()[2:]}")
+    if new:
+        head = "# 待撰寫佇列\n\n追蹤清單（_data/待撰寫追蹤.txt）裡的公司出現新聞時記在這裡，撰寫排程會替它們寫調研報告，寫完後刪掉對應的行。\n\n"
+        body = old.split("\n\n", 2)[2] if old.count("\n\n") >= 2 else ""
+        write_text(q, head + "\n".join(new) + ("\n" + body if body.strip() else "\n"))
+    return len(new)
+
+
 def load_watchlist(vault: Path, notes: dict[str, Path]) -> list[str]:
     f = vault / NEWS_DIR / "關注清單.md"
     if f.exists():
@@ -440,6 +466,9 @@ def main() -> int:
         p = vault / NEWS_DIR / f"{note.stem} 新聞.md"
         if p.exists():
             update_note_block(note, note.stem, parse_news_file(p.read_text("utf-8")), now)
+    queued = queue_pending(vault, by_code, notes)
+    if queued:
+        print(f"待撰寫佇列新增 {queued} 則")
     write_daily(vault, now, added, titles)
     print(f"新增 {sum(map(len, added.values()))} 則，涉及 {len(added)} 家公司")
     for w in warnings:
