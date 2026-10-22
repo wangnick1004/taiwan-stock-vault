@@ -355,23 +355,38 @@ def update_note_block(note: Path, title: str, days: dict[str, list[str]], now: d
     write_text(note, text)
 
 
+DAILY_HEADING = "## 附錄：新聞標題總覽"
+DAILY_START = "<!-- headlines:start（自動產生，請勿手動編輯此範圍） -->"
+DAILY_END = "<!-- headlines:end -->"
+DAILY_RE = re.compile(r"<!-- headlines:start[^>]*-->\n?(.*?)<!-- headlines:end -->", re.S)
+
+
 def write_daily(vault: Path, now: dt.datetime, added: dict[str, list[Item]], titles: dict[str, str]) -> None:
+    """當天的標題總覽寫進「YYYY-MM-DD 台股日報.md」的附錄標記範圍；標記外的日報正文由 Claude 撰寫，這裡不動。"""
     if not added and not warnings:
         return
-    p = vault / DAILY_DIR / f"{now:%Y-%m-%d}.md"
-    old = p.read_text("utf-8") if p.exists() else ""
+    p = vault / DAILY_DIR / f"{now:%Y-%m-%d} 台股日報.md"
+    text = p.read_text("utf-8") if p.exists() else (
+        f"---\n日期: {now:%Y-%m-%d}\n類型: 台股日報\ntags: [新聞, 日報]\n---\n# {now:%Y-%m-%d} 台股日報\n\n"
+        "> [!note] 日報正文由 Claude 在交易日傍晚撰寫；下方附錄是排程自動抓到的新聞標題。\n\n"
+    )
+    m = DAILY_RE.search(text)
+    prev = m.group(1) if m else ""
+    prev = re.sub(r"^> \[!warning\].*?(?=\n[^>]|\Z)", "", prev, flags=re.S).strip("\n")
     sections = []
     for code in sorted(added, key=lambda c: (-sum("重訊" in i.kind for i in added[c]), c)):
         its = sorted(added[code], key=lambda i: (i.date, i.time), reverse=True)
         today = f"{now:%Y-%m-%d}"
         lines = [i.line() if i.date == today else i.line().replace("- ", f"- {i.date[5:]} ", 1) for i in its]
-        sections.append(f"### [[{titles[code]}]]\n" + "\n".join(lines))
-    head = f"# {now:%Y-%m-%d} 台股新聞總覽\n"
-    warn = ("> [!warning] 本次部分來源失敗\n" + "\n".join(f"> - {w}" for w in warnings) + "\n") if warnings else ""
-    run = f"\n## {now:%H:%M} 更新（{len(added)} 家公司）\n\n" + ("\n\n".join(sections) if sections else "本次沒有新消息。") + "\n"
-    prev = old.split("\n", 1)[1] if old.startswith("# ") else old
-    prev = re.sub(r"^> \[!warning\].*?(?=\n[^>]|\Z)", "", prev, flags=re.S).lstrip("\n")
-    write_text(p, head + warn + run + ("\n" + prev if prev else ""))
+        sections.append(f"#### [[{titles[code]}]]\n" + "\n".join(lines))
+    warn = ("> [!warning] 本次部分來源失敗\n" + "\n".join(f"> - {w}" for w in warnings) + "\n\n") if warnings else ""
+    run = f"### {now:%H:%M} 更新（{len(added)} 家公司）\n\n" + ("\n\n".join(sections) if sections else "本次沒有新消息。") + "\n"
+    block = f"{DAILY_START}\n{warn}{run}" + (f"\n{prev}\n" if prev else "") + DAILY_END
+    if m:
+        text = text[:m.start()] + block + text[m.end():]
+    else:
+        text = text.rstrip("\n") + f"\n\n{DAILY_HEADING}\n{block}\n"
+    write_text(p, text)
 
 
 def queue_pending(vault: Path, by_code: dict[str, list[Item]], notes: dict[str, Path]) -> int:
