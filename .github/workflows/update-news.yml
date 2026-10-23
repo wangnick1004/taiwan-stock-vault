@@ -45,7 +45,7 @@ jobs:
       - name: 篩選異常訊號（Top N 候選、題材雷達）
         continue-on-error: true
         if: ${{ github.event.inputs.only == '' || github.event.inputs.only == null }}
-        run: python scripts/訊號篩選/screen.py --vault .
+        run: python scripts/訊號篩選/screen.py --vault . --check-links
       - name: 推回 repo
         run: |
           git config user.name "news-bot"
