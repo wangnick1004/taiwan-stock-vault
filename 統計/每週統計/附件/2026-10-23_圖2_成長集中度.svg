@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei','WenQuanYi Zen Hei',sans-serif">
+<rect width="900" height="520" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-size="18" fill="#0b0b0b" text-anchor="start" font-weight="600">營收年增金額由少數公司貢獻</text>
+<text x="24.0" y="56.0" font-size="13" fill="#52514e" text-anchor="start" font-weight="normal">依年增金額由大到小排序的累計貢獻；前 10 家合計占全體淨增加額 63%</text>
+<line x1="70.0" y1="450.0" x2="860.0" y2="450.0" stroke="#e6e4de" stroke-width="1"/>
+<text x="62.0" y="454.0" font-size="12" fill="#52514e" text-anchor="end" font-weight="normal">0%</text>
+<line x1="70.0" y1="382.1" x2="860.0" y2="382.1" stroke="#e6e4de" stroke-width="1"/>
+<text x="62.0" y="386.1" font-size="12" fill="#52514e" text-anchor="end" font-weight="normal">20%</text>
+<line x1="70.0" y1="314.2" x2="860.0" y2="314.2" stroke="#e6e4de" stroke-width="1"/>
+<text x="62.0" y="318.2" font-size="12" fill="#52514e" text-anchor="end" font-weight="normal">40%</text>
+<line x1="70.0" y1="246.3" x2="860.0" y2="246.3" stroke="#e6e4de" stroke-width="1"/>
+<text x="62.0" y="250.3" font-size="12" fill="#52514e" text-anchor="end" font-weight="normal">60%</text>
+<line x1="70.0" y1="178.4" x2="860.0" y2="178.4" stroke="#e6e4de" stroke-width="1"/>
+<text x="62.0" y="182.4" font-size="12" fill="#52514e" text-anchor="end" font-weight="normal">80%</text>
+<line x1="70.0" y1="110.5" x2="860.0" y2="110.5" stroke="#8a8984" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="62.0" y="114.5" font-size="12" fill="#52514e" text-anchor="end" font-weight="normal">100%</text>
+<text x="860.0" y="104.5" font-size="12" fill="#52514e" text-anchor="end" font-weight="normal">100% ＝ 全體淨增加額</text>
+<path d="M74.0,397.9 L77.9,368.6 L81.8,339.8 L85.8,316.9 L89.8,295.8 L93.7,279.6 L97.7,265.6 L101.6,252.5 L105.5,243.5 L109.5,236.0 L113.5,229.8 L117.4,223.6 L121.3,217.9 L125.3,212.3 L129.2,207.9 L133.2,203.9 L137.2,199.9 L141.1,196.6 L145.1,193.5 L149.0,190.9 L152.9,188.5 L156.9,186.3 L160.9,184.4 L164.8,182.6 L168.8,180.9 L172.7,179.2 L176.7,177.8 L180.6,176.3 L184.6,175.0 L188.5,173.6 L192.4,172.3 L196.4,171.1 L200.3,169.9 L204.3,168.7 L208.2,167.6 L212.2,166.5 L216.2,165.5 L220.1,164.4 L224.1,163.4 L228.0,162.5 L231.9,161.7 L235.9,160.8 L239.8,159.9 L243.8,159.0 L247.8,158.1 L251.7,157.3 L255.6,156.5 L259.6,155.6 L263.5,154.9 L267.5,154.1 L271.5,153.4 L275.4,152.7 L279.4,152.0 L283.3,151.3 L287.2,150.7 L291.2,150.1 L295.1,149.4 L299.1,148.9 L303.0,148.3 L307.0,147.7 L310.9,147.1 L314.9,146.6 L318.9,146.0 L322.8,145.5 L326.8,144.9 L330.7,144.4 L334.7,143.9 L338.6,143.4 L342.5,142.9 L346.5,142.4 L350.4,142.0 L354.4,141.5 L358.3,141.1 L362.3,140.7 L366.2,140.2 L370.2,139.8 L374.2,139.4 L378.1,139.0 L382.1,138.7 L386.0,138.3 L390.0,137.9 L393.9,137.6 L397.8,137.2 L401.8,136.9 L405.8,136.6 L409.7,136.2 L413.6,135.9 L417.6,135.6 L421.6,135.3 L425.5,134.9 L429.4,134.6 L433.4,134.3 L437.4,134.0 L441.3,133.7 L445.2,133.4 L449.2,133.2 L453.1,132.9 L457.1,132.6 L461.1,132.3 L465.0,132.1 L468.9,131.8 L472.9,131.6 L476.9,131.3 L480.8,131.1 L484.8,130.8 L488.7,130.6 L492.7,130.3 L496.6,130.1 L500.6,129.9 L504.5,129.6 L508.5,129.4 L512.4,129.2 L516.3,128.9 L520.3,128.7 L524.2,128.5 L528.2,128.3 L532.1,128.0 L536.1,127.8 L540.0,127.6 L544.0,127.4 L548.0,127.2 L551.9,127.0 L555.8,126.8 L559.8,126.6 L563.8,126.4 L567.7,126.2 L571.7,126.1 L575.6,125.9 L579.5,125.7 L583.5,125.5 L587.5,125.4 L591.4,125.2 L595.4,125.0 L599.3,124.9 L603.2,124.7 L607.2,124.5 L611.2,124.4 L615.1,124.2 L619.0,124.1 L623.0,123.9 L626.9,123.8 L630.9,123.6 L634.9,123.4 L638.8,123.3 L642.8,123.1 L646.7,123.0 L650.6,122.9 L654.6,122.7 L658.5,122.6 L662.5,122.4 L666.5,122.3 L670.4,122.1 L674.4,122.0 L678.3,121.9 L682.2,121.7 L686.2,121.6 L690.1,121.5 L694.1,121.3 L698.1,121.2 L702.0,121.1 L706.0,120.9 L709.9,120.8 L713.8,120.7 L717.8,120.6 L721.8,120.4 L725.7,120.3 L729.6,120.2 L733.6,120.1 L737.5,119.9 L741.5,119.8 L745.4,119.7 L749.4,119.6 L753.4,119.5 L757.3,119.4 L761.2,119.2 L765.2,119.1 L769.1,119.0 L773.1,118.9 L777.1,118.8 L781.0,118.7 L785.0,118.6 L788.9,118.5 L792.9,118.4 L796.8,118.2 L800.8,118.1 L804.7,118.0 L808.7,117.9 L812.6,117.8 L816.5,117.7 L820.5,117.6 L824.4,117.5 L828.4,117.4 L832.4,117.3 L836.3,117.2 L840.2,117.1 L844.2,117.0 L848.1,116.9 L852.1,116.9 L856.0,116.8 L860.0,116.7" stroke="#2a78d6" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="74.0" cy="397.9" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="1.5"/>
+<text x="82.0" y="413.9" font-size="12" fill="#0b0b0b" text-anchor="start" font-weight="normal">前 1 家 15%</text>
+<circle cx="109.5" cy="236.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="1.5"/>
+<text x="117.5" y="252.0" font-size="12" fill="#0b0b0b" text-anchor="start" font-weight="normal">前 10 家 63%</text>
+<circle cx="267.5" cy="154.1" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="1.5"/>
+<text x="275.5" y="170.1" font-size="12" fill="#0b0b0b" text-anchor="start" font-weight="normal">前 50 家 87%</text>
+<text x="74.0" y="470.0" font-size="12" fill="#52514e" text-anchor="middle" font-weight="normal">1</text>
+<text x="267.5" y="470.0" font-size="12" fill="#52514e" text-anchor="middle" font-weight="normal">50</text>
+<text x="465.0" y="470.0" font-size="12" fill="#52514e" text-anchor="middle" font-weight="normal">100</text>
+<text x="662.5" y="470.0" font-size="12" fill="#52514e" text-anchor="middle" font-weight="normal">150</text>
+<text x="860.0" y="470.0" font-size="12" fill="#52514e" text-anchor="middle" font-weight="normal">200</text>
+<text x="860.0" y="490.0" font-size="12" fill="#52514e" text-anchor="end" font-weight="normal">公司數（依年增金額排序）</text>
+<text x="24.0" y="506.0" font-size="11" fill="#8a8984" text-anchor="start" font-weight="normal">資料：證交所、櫃買中心 OpenAPI 每月營收（本庫 系統/資料/財務摘要.json）；排除金融保險業。 曲線超過 100% 代表其餘公司合計為負成長。</text>
+</svg>
