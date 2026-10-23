@@ -145,7 +145,7 @@ def roic_wacc(rows):
 def main():
     rows = load(sys.argv[1])
     date = re.search(r"(\d{4}-\d{2}-\d{2})", sys.argv[1]).group(1).replace("-", "/")
-    src = f"資料來源：元大投信 0050 持股明細（經 MoneyDJ 理財網），持股日期 {date}；產業別為證交所上市產業分類。"
+    src = f"資料來源：元大投信 0050 基金持股權重（官方下載檔），持股日期 {date}；產業別為證交所上市產業分類。"
 
     ind = {}
     for r in rows:

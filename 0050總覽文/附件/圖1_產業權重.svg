@@ -18,40 +18,40 @@
 <line x1="790.0" x2="790.0" y1="58" y2="424" stroke="#e6e4de"/>
 <text x="790.0" y="442" text-anchor="middle" font-size="11" fill="#52514e">70%</text>
 <text x="164" y="83" text-anchor="end" fill="#0b0b0b">半導體業</text>
-<rect x="174" y="70" width="605.0" height="18" rx="4" fill="#2a78d6"><title>半導體業 68.75%</title></rect>
-<text x="787.0" y="83" fill="#0b0b0b">68.75%<tspan fill="#52514e" font-size="11">  9 檔</tspan></text>
-<text x="164" y="113" text-anchor="end" fill="#0b0b0b">電子零組件業</text>
-<rect x="174" y="100" width="81.0" height="18" rx="4" fill="#2a78d6"><title>電子零組件業 9.20%</title></rect>
-<text x="263.0" y="113" fill="#0b0b0b">9.20%<tspan fill="#52514e" font-size="11">  9 檔</tspan></text>
-<text x="164" y="143" text-anchor="end" fill="#0b0b0b">金融保險業</text>
-<rect x="174" y="130" width="75.7" height="18" rx="4" fill="#2a78d6"><title>金融保險業 8.60%</title></rect>
-<text x="257.7" y="143" fill="#0b0b0b">8.60%<tspan fill="#52514e" font-size="11">  12 檔</tspan></text>
+<rect x="174" y="70" width="605.2" height="18" rx="4" fill="#2a78d6"><title>半導體業 68.77%</title></rect>
+<text x="787.2" y="83" fill="#0b0b0b">68.77%<tspan fill="#52514e" font-size="11">  9 檔</tspan></text>
+<text x="164" y="113" text-anchor="end" fill="#0b0b0b">金融保險業</text>
+<rect x="174" y="100" width="78.1" height="18" rx="4" fill="#2a78d6"><title>金融保險業 8.87%</title></rect>
+<text x="260.1" y="113" fill="#0b0b0b">8.87%<tspan fill="#52514e" font-size="11">  12 檔</tspan></text>
+<text x="164" y="143" text-anchor="end" fill="#0b0b0b">電子零組件業</text>
+<rect x="174" y="130" width="77.4" height="18" rx="4" fill="#2a78d6"><title>電子零組件業 8.80%</title></rect>
+<text x="259.4" y="143" fill="#0b0b0b">8.80%<tspan fill="#52514e" font-size="11">  9 檔</tspan></text>
 <text x="164" y="173" text-anchor="end" fill="#0b0b0b">電腦及週邊設備業</text>
-<rect x="174" y="160" width="38.1" height="18" rx="4" fill="#2a78d6"><title>電腦及週邊設備業 4.33%</title></rect>
-<text x="220.1" y="173" fill="#0b0b0b">4.33%<tspan fill="#52514e" font-size="11">  7 檔</tspan></text>
+<rect x="174" y="160" width="39.0" height="18" rx="4" fill="#2a78d6"><title>電腦及週邊設備業 4.43%</title></rect>
+<text x="221.0" y="173" fill="#0b0b0b">4.43%<tspan fill="#52514e" font-size="11">  7 檔</tspan></text>
 <text x="164" y="203" text-anchor="end" fill="#0b0b0b">其他電子業</text>
-<rect x="174" y="190" width="33.9" height="18" rx="4" fill="#2a78d6"><title>其他電子業 3.85%</title></rect>
-<text x="215.9" y="203" fill="#0b0b0b">3.85%<tspan fill="#52514e" font-size="11">  3 檔</tspan></text>
+<rect x="174" y="190" width="34.4" height="18" rx="4" fill="#2a78d6"><title>其他電子業 3.91%</title></rect>
+<text x="216.4" y="203" fill="#0b0b0b">3.91%<tspan fill="#52514e" font-size="11">  3 檔</tspan></text>
 <text x="164" y="233" text-anchor="end" fill="#0b0b0b">通信網路業</text>
-<rect x="174" y="220" width="15.8" height="18" rx="4" fill="#2a78d6"><title>通信網路業 1.80%</title></rect>
-<text x="197.8" y="233" fill="#0b0b0b">1.80%<tspan fill="#52514e" font-size="11">  4 檔</tspan></text>
+<rect x="174" y="220" width="16.6" height="18" rx="4" fill="#2a78d6"><title>通信網路業 1.89%</title></rect>
+<text x="198.6" y="233" fill="#0b0b0b">1.89%<tspan fill="#52514e" font-size="11">  4 檔</tspan></text>
 <text x="164" y="263" text-anchor="end" fill="#0b0b0b">塑膠工業</text>
-<rect x="174" y="250" width="12.8" height="18" rx="4" fill="#2a78d6"><title>塑膠工業 1.46%</title></rect>
-<text x="194.8" y="263" fill="#0b0b0b">1.46%<tspan fill="#52514e" font-size="11">  1 檔</tspan></text>
+<rect x="174" y="250" width="12.5" height="18" rx="4" fill="#2a78d6"><title>塑膠工業 1.42%</title></rect>
+<text x="194.5" y="263" fill="#0b0b0b">1.42%<tspan fill="#52514e" font-size="11">  1 檔</tspan></text>
 <text x="164" y="293" text-anchor="end" fill="#0b0b0b">光電業</text>
-<rect x="174" y="280" width="5.5" height="18" rx="4" fill="#2a78d6"><title>光電業 0.63%</title></rect>
-<text x="187.5" y="293" fill="#0b0b0b">0.63%<tspan fill="#52514e" font-size="11">  1 檔</tspan></text>
+<rect x="174" y="280" width="4.8" height="18" rx="4" fill="#2a78d6"><title>光電業 0.55%</title></rect>
+<text x="186.8" y="293" fill="#0b0b0b">0.55%<tspan fill="#52514e" font-size="11">  1 檔</tspan></text>
 <text x="164" y="323" text-anchor="end" fill="#0b0b0b">食品工業</text>
-<rect x="174" y="310" width="3.1" height="18" rx="4" fill="#2a78d6"><title>食品工業 0.35%</title></rect>
-<text x="185.1" y="323" fill="#0b0b0b">0.35%<tspan fill="#52514e" font-size="11">  1 檔</tspan></text>
+<rect x="174" y="310" width="3.3" height="18" rx="4" fill="#2a78d6"><title>食品工業 0.38%</title></rect>
+<text x="185.3" y="323" fill="#0b0b0b">0.38%<tspan fill="#52514e" font-size="11">  1 檔</tspan></text>
 <text x="164" y="353" text-anchor="end" fill="#0b0b0b">生技醫療業</text>
-<rect x="174" y="340" width="3.0" height="18" rx="4" fill="#2a78d6"><title>生技醫療業 0.34%</title></rect>
-<text x="185.0" y="353" fill="#0b0b0b">0.34%<tspan fill="#52514e" font-size="11">  1 檔</tspan></text>
+<rect x="174" y="340" width="3.1" height="18" rx="4" fill="#2a78d6"><title>生技醫療業 0.35%</title></rect>
+<text x="185.1" y="353" fill="#0b0b0b">0.35%<tspan fill="#52514e" font-size="11">  1 檔</tspan></text>
 <text x="164" y="383" text-anchor="end" fill="#0b0b0b">航運業</text>
 <rect x="174" y="370" width="2.4" height="18" rx="4" fill="#2a78d6"><title>航運業 0.27%</title></rect>
 <text x="184.4" y="383" fill="#0b0b0b">0.27%<tspan fill="#52514e" font-size="11">  1 檔</tspan></text>
 <text x="164" y="413" text-anchor="end" fill="#0b0b0b">油電燃氣業</text>
-<rect x="174" y="400" width="1.1" height="18" rx="4" fill="#2a78d6"><title>油電燃氣業 0.13%</title></rect>
-<text x="183.1" y="413" fill="#0b0b0b">0.13%<tspan fill="#52514e" font-size="11">  1 檔</tspan></text>
-<text x="24" y="466" font-size="11" fill="#8a8984">資料來源：元大投信 0050 持股明細（經 MoneyDJ 理財網），持股日期 2026/10/13；產業別為證交所上市產業分類。</text>
+<rect x="174" y="400" width="1.1" height="18" rx="4" fill="#2a78d6"><title>油電燃氣業 0.12%</title></rect>
+<text x="183.1" y="413" fill="#0b0b0b">0.12%<tspan fill="#52514e" font-size="11">  1 檔</tspan></text>
+<text x="24" y="466" font-size="11" fill="#8a8984">資料來源：元大投信 0050 基金持股權重（官方下載檔），持股日期 2026/10/20；產業別為證交所上市產業分類。</text>
 </svg>
