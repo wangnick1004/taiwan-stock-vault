@@ -270,8 +270,9 @@ def parse_news_file(text: str) -> dict[str, list[str]]:
 
 
 def line_key(ln: str) -> str:
+    # 標題本身可能含「｜」（例：零股排行榜｜…），取頭尾之間全部，才會跟 Item.key 一致、不重複寫入
     parts = ln.split("｜")
-    return norm_title(parts[1]) if len(parts) >= 3 else norm_title(ln)
+    return norm_title("｜".join(parts[1:-1])) if len(parts) >= 3 else norm_title(ln)
 
 
 def render_news_file(code: str, title: str, market: str, days: dict[str, list[str]], now: dt.datetime) -> str:
