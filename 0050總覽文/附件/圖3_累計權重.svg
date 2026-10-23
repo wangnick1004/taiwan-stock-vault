@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="900" height="480" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei','WenQuanYi Zen Hei',sans-serif" font-size="13">
+<rect width="900" height="480" fill="#ffffff"/>
+<text x="24" y="34" font-size="18" font-weight="700" fill="#0b0b0b">圖 3　0050 權重集中度：累計權重曲線</text>
+<line x1="70" x2="860" y1="400.0" y2="400.0" stroke="#e6e4de"/>
+<text x="62" y="404.0" text-anchor="end" font-size="11" fill="#52514e">0%</text>
+<line x1="70" x2="860" y1="334.0" y2="334.0" stroke="#e6e4de"/>
+<text x="62" y="338.0" text-anchor="end" font-size="11" fill="#52514e">20%</text>
+<line x1="70" x2="860" y1="268.0" y2="268.0" stroke="#e6e4de"/>
+<text x="62" y="272.0" text-anchor="end" font-size="11" fill="#52514e">40%</text>
+<line x1="70" x2="860" y1="202.0" y2="202.0" stroke="#e6e4de"/>
+<text x="62" y="206.0" text-anchor="end" font-size="11" fill="#52514e">60%</text>
+<line x1="70" x2="860" y1="136.0" y2="136.0" stroke="#e6e4de"/>
+<text x="62" y="140.0" text-anchor="end" font-size="11" fill="#52514e">80%</text>
+<line x1="70" x2="860" y1="70.0" y2="70.0" stroke="#e6e4de"/>
+<text x="62" y="74.0" text-anchor="end" font-size="11" fill="#52514e">100%</text>
+<text x="70.0" y="420" text-anchor="middle" font-size="11" fill="#52514e">第1大</text>
+<text x="215.1" y="420" text-anchor="middle" font-size="11" fill="#52514e">第10大</text>
+<text x="376.3" y="420" text-anchor="middle" font-size="11" fill="#52514e">第20大</text>
+<text x="537.6" y="420" text-anchor="middle" font-size="11" fill="#52514e">第30大</text>
+<text x="698.8" y="420" text-anchor="middle" font-size="11" fill="#52514e">第40大</text>
+<text x="860.0" y="420" text-anchor="middle" font-size="11" fill="#52514e">第50大</text>
+<text x="465.0" y="440" text-anchor="middle" font-size="12" fill="#52514e">成分股依權重排序</text>
+<line x1="70.0" y1="393.4" x2="860.0" y2="70.0" stroke="#8a8984" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="537.6" y="228.4" font-size="12" fill="#52514e">若 50 檔等權重（每檔 2%）</text>
+<polyline points="70.0,213.6 86.1,193.2 102.2,182.7 118.4,173.8 134.5,166.2 150.6,161.2 166.7,156.2 182.9,151.4 199.0,146.7 215.1,142.6 231.2,138.7 247.3,135.3 263.5,132.1 279.6,129.0 295.7,126.0 311.8,123.1 328.0,120.5 344.1,118.0 360.2,115.5 376.3,113.2 392.4,111.2 408.6,109.1 424.7,107.1 440.8,105.1 456.9,103.2 473.1,101.3 489.2,99.4 505.3,97.6 521.4,95.7 537.6,94.0 553.7,92.3 569.8,90.6 585.9,89.0 602.0,87.5 618.2,86.0 634.3,84.7 650.4,83.3 666.5,82.1 682.7,80.8 698.8,79.7 714.9,78.5 731.0,77.4 747.1,76.4 763.3,75.3 779.4,74.3 795.5,73.4 811.6,72.5 827.8,71.9 843.9,71.4 860.0,71.0" fill="none" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="70.0" cy="213.6" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<text x="80.0" y="231.6" text-anchor="start" font-size="12" fill="#0b0b0b">前1大 56.5%</text>
+<circle cx="102.2" cy="182.7" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<text x="112.2" y="202.7" text-anchor="start" font-size="12" fill="#0b0b0b">前3大 65.8%</text>
+<circle cx="215.1" cy="142.6" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<text x="215.1" y="128.6" text-anchor="middle" font-size="12" fill="#0b0b0b">前10大 78.0%</text>
+<circle cx="376.3" cy="113.2" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<text x="376.3" y="99.2" text-anchor="middle" font-size="12" fill="#0b0b0b">前20大 86.9%</text>
+<circle cx="860.0" cy="71.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<text x="854.0" y="57.0" text-anchor="end" font-size="12" fill="#0b0b0b">前50大 99.7%</text>
+<text x="24" y="466" font-size="11" fill="#8a8984">資料來源：元大投信 0050 持股明細（經 MoneyDJ 理財網），持股日期 2026/10/13；產業別為證交所上市產業分類。</text>
+</svg>

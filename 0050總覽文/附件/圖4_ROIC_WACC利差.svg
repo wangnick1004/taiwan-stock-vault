@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 812" width="900" height="812" font-family="'PingFang TC','Noto Sans TC','Microsoft JhengHei','WenQuanYi Zen Hei',sans-serif" font-size="13">
+<rect width="900" height="812" fill="#ffffff"/>
+<text x="24" y="34" font-size="18" font-weight="700" fill="#0b0b0b">圖 4　0050 非金融成分股：ROIC 與 WACC 利差（2025 年，推算值）</text>
+<text x="24" y="56" font-size="12" fill="#52514e">ROIC − WACC（百分點）；藍＝ROIC 高於資金成本，橙＝低於資金成本。括號內為 ROIC／WACC。</text>
+<line x1="154.0" x2="154.0" y1="76" y2="752" stroke="#e6e4de"/>
+<text x="154.0" y="770" text-anchor="middle" font-size="11" fill="#52514e">-10</text>
+<line x1="266.7" x2="266.7" y1="76" y2="752" stroke="#e6e4de"/>
+<text x="266.7" y="770" text-anchor="middle" font-size="11" fill="#52514e">-5</text>
+<line x1="379.3" x2="379.3" y1="76" y2="752" stroke="#52514e"/>
+<text x="379.3" y="770" text-anchor="middle" font-size="11" fill="#52514e">+0</text>
+<line x1="492.0" x2="492.0" y1="76" y2="752" stroke="#e6e4de"/>
+<text x="492.0" y="770" text-anchor="middle" font-size="11" fill="#52514e">+5</text>
+<line x1="604.7" x2="604.7" y1="76" y2="752" stroke="#e6e4de"/>
+<text x="604.7" y="770" text-anchor="middle" font-size="11" fill="#52514e">+10</text>
+<line x1="717.3" x2="717.3" y1="76" y2="752" stroke="#e6e4de"/>
+<text x="717.3" y="770" text-anchor="middle" font-size="11" fill="#52514e">+15</text>
+<line x1="830.0" x2="830.0" y1="76" y2="752" stroke="#e6e4de"/>
+<text x="830.0" y="770" text-anchor="middle" font-size="11" fill="#52514e">+20</text>
+<text x="144" y="96" text-anchor="end" font-size="12" fill="#0b0b0b">奇鋐</text>
+<rect x="379.3" y="85" width="380.8" height="14" rx="3" fill="#2a78d6"><title>奇鋐 +16.9</title></rect>
+<text x="766.1" y="96" text-anchor="start" font-size="11" fill="#0b0b0b">+16.9 <tspan fill="#52514e">(24%／7.1%)</tspan></text>
+<text x="144" y="120" text-anchor="end" font-size="12" fill="#0b0b0b">緯穎</text>
+<rect x="379.3" y="109" width="376.3" height="14" rx="3" fill="#2a78d6"><title>緯穎 +16.7</title></rect>
+<text x="761.6" y="120" text-anchor="start" font-size="11" fill="#0b0b0b">+16.7 <tspan fill="#52514e">(22.3%／5.6%)</tspan></text>
+<text x="144" y="144" text-anchor="end" font-size="12" fill="#0b0b0b">創意</text>
+<rect x="379.3" y="133" width="371.8" height="14" rx="3" fill="#2a78d6"><title>創意 +16.5</title></rect>
+<text x="757.1" y="144" text-anchor="start" font-size="11" fill="#0b0b0b">+16.5 <tspan fill="#52514e">(26%／9.5%)</tspan></text>
+<text x="144" y="168" text-anchor="end" font-size="12" fill="#0b0b0b">廣達</text>
+<rect x="379.3" y="157" width="304.2" height="14" rx="3" fill="#2a78d6"><title>廣達 +13.5</title></rect>
+<text x="689.5" y="168" text-anchor="start" font-size="11" fill="#0b0b0b">+13.5 <tspan fill="#52514e">(19.6%／6.1%)</tspan></text>
+<text x="144" y="192" text-anchor="end" font-size="12" fill="#0b0b0b">台光電</text>
+<rect x="379.3" y="181" width="283.9" height="14" rx="3" fill="#2a78d6"><title>台光電 +12.6</title></rect>
+<text x="669.3" y="192" text-anchor="start" font-size="11" fill="#0b0b0b">+12.6 <tspan fill="#52514e">(20%／7.4%)</tspan></text>
+<text x="144" y="216" text-anchor="end" font-size="12" fill="#0b0b0b">致茂</text>
+<rect x="379.3" y="205" width="261.4" height="14" rx="3" fill="#2a78d6"><title>致茂 +11.6</title></rect>
+<text x="646.7" y="216" text-anchor="start" font-size="11" fill="#0b0b0b">+11.6 <tspan fill="#52514e">(19%／7.4%)</tspan></text>
+<text x="144" y="240" text-anchor="end" font-size="12" fill="#0b0b0b">聯發科</text>
+<rect x="379.3" y="229" width="207.3" height="14" rx="3" fill="#2a78d6"><title>聯發科 +9.2</title></rect>
+<text x="592.6" y="240" text-anchor="start" font-size="11" fill="#0b0b0b">+9.2 <tspan fill="#52514e">(17～19%／7.8～9.6%)</tspan></text>
+<text x="144" y="264" text-anchor="end" font-size="12" fill="#0b0b0b">貿聯-KY</text>
+<rect x="379.3" y="253" width="200.5" height="14" rx="3" fill="#2a78d6"><title>貿聯-KY +8.9</title></rect>
+<text x="585.9" y="264" text-anchor="start" font-size="11" fill="#0b0b0b">+8.9 <tspan fill="#52514e">(16～18%／7.1%)</tspan></text>
+<text x="144" y="288" text-anchor="end" font-size="12" fill="#0b0b0b">台達電</text>
+<rect x="379.3" y="277" width="191.5" height="14" rx="3" fill="#2a78d6"><title>台達電 +8.5</title></rect>
+<text x="576.9" y="288" text-anchor="start" font-size="11" fill="#0b0b0b">+8.5 <tspan fill="#52514e">(14.9%／6.4%)</tspan></text>
+<text x="144" y="312" text-anchor="end" font-size="12" fill="#0b0b0b">台灣大</text>
+<rect x="379.3" y="301" width="139.7" height="14" rx="3" fill="#2a78d6"><title>台灣大 +6.2</title></rect>
+<text x="525.0" y="312" text-anchor="start" font-size="11" fill="#0b0b0b">+6.2 <tspan fill="#52514e">(9%／2.8%)</tspan></text>
+<text x="144" y="336" text-anchor="end" font-size="12" fill="#0b0b0b">中華電</text>
+<rect x="379.3" y="325" width="128.4" height="14" rx="3" fill="#2a78d6"><title>中華電 +5.7</title></rect>
+<text x="513.8" y="336" text-anchor="start" font-size="11" fill="#0b0b0b">+5.7 <tspan fill="#52514e">(9.3%／3.6%)</tspan></text>
+<text x="144" y="360" text-anchor="end" font-size="12" fill="#0b0b0b">光寶科</text>
+<rect x="379.3" y="349" width="114.9" height="14" rx="3" fill="#2a78d6"><title>光寶科 +5.1</title></rect>
+<text x="500.3" y="360" text-anchor="start" font-size="11" fill="#0b0b0b">+5.1 <tspan fill="#52514e">(12%／6.9%)</tspan></text>
+<text x="144" y="384" text-anchor="end" font-size="12" fill="#0b0b0b">統一</text>
+<rect x="379.3" y="373" width="78.9" height="14" rx="3" fill="#2a78d6"><title>統一 +3.5</title></rect>
+<text x="464.2" y="384" text-anchor="start" font-size="11" fill="#0b0b0b">+3.5 <tspan fill="#52514e">(7.1%／3.6%)</tspan></text>
+<text x="144" y="408" text-anchor="end" font-size="12" fill="#0b0b0b">大立光</text>
+<rect x="379.3" y="397" width="43.9" height="14" rx="3" fill="#2a78d6"><title>大立光 +1.9</title></rect>
+<text x="429.3" y="408" text-anchor="start" font-size="11" fill="#0b0b0b">+1.9 <tspan fill="#52514e">(9.7%／7.75%)</tspan></text>
+<text x="144" y="432" text-anchor="end" font-size="12" fill="#0b0b0b">藥華藥</text>
+<rect x="379.3" y="421" width="40.6" height="14" rx="3" fill="#2a78d6"><title>藥華藥 +1.8</title></rect>
+<text x="425.9" y="432" text-anchor="start" font-size="11" fill="#0b0b0b">+1.8 <tspan fill="#52514e">(10.7%／8.9%)</tspan></text>
+<text x="144" y="456" text-anchor="end" font-size="12" fill="#0b0b0b">華碩</text>
+<rect x="379.3" y="445" width="36.1" height="14" rx="3" fill="#2a78d6"><title>華碩 +1.6</title></rect>
+<text x="421.4" y="456" text-anchor="start" font-size="11" fill="#0b0b0b">+1.6 <tspan fill="#52514e">(8.9%／7.3%)</tspan></text>
+<text x="144" y="480" text-anchor="end" font-size="12" fill="#0b0b0b">京元電子</text>
+<rect x="379.3" y="469" width="27.0" height="14" rx="3" fill="#2a78d6"><title>京元電子 +1.2</title></rect>
+<text x="412.4" y="480" text-anchor="start" font-size="11" fill="#0b0b0b">+1.2 <tspan fill="#52514e">(6.7%／5.5～6.2%)</tspan></text>
+<text x="144" y="504" text-anchor="end" font-size="12" fill="#0b0b0b">長榮</text>
+<rect x="379.3" y="493" width="18.0" height="14" rx="3" fill="#2a78d6"><title>長榮 +0.8</title></rect>
+<text x="403.4" y="504" text-anchor="start" font-size="11" fill="#0b0b0b">+0.8 <tspan fill="#52514e">(7.6%／6.8%)</tspan></text>
+<text x="144" y="528" text-anchor="end" font-size="12" fill="#0b0b0b">鴻海</text>
+<rect x="379.3" y="517" width="9.0" height="14" rx="3" fill="#2a78d6"><title>鴻海 +0.4</title></rect>
+<text x="394.3" y="528" text-anchor="start" font-size="11" fill="#0b0b0b">+0.4 <tspan fill="#52514e">(6.1%／5.7%)</tspan></text>
+<text x="144" y="552" text-anchor="end" font-size="12" fill="#0b0b0b">日月光投控</text>
+<rect x="379.3" y="541" width="6.8" height="14" rx="3" fill="#2a78d6"><title>日月光投控 +0.3</title></rect>
+<text x="392.1" y="552" text-anchor="start" font-size="11" fill="#0b0b0b">+0.3 <tspan fill="#52514e">(5.5%／5.2～5.9%)</tspan></text>
+<text x="144" y="576" text-anchor="end" font-size="12" fill="#0b0b0b">聯電</text>
+<rect x="365.8" y="565" width="13.5" height="14" rx="3" fill="#eb6834"><title>聯電 -0.6</title></rect>
+<text x="385.3" y="576" text-anchor="start" font-size="11" fill="#0b0b0b">-0.6 <tspan fill="#52514e">(6.3%／6.9%)</tspan></text>
+<text x="144" y="600" text-anchor="end" font-size="12" fill="#0b0b0b">臻鼎-KY</text>
+<rect x="314.0" y="589" width="65.3" height="14" rx="3" fill="#eb6834"><title>臻鼎-KY -2.9</title></rect>
+<text x="385.3" y="600" text-anchor="start" font-size="11" fill="#0b0b0b">-2.9 <tspan fill="#52514e">(4.1%／7%)</tspan></text>
+<text x="144" y="624" text-anchor="end" font-size="12" fill="#0b0b0b">欣興</text>
+<rect x="302.7" y="613" width="76.6" height="14" rx="3" fill="#eb6834"><title>欣興 -3.4</title></rect>
+<text x="385.3" y="624" text-anchor="start" font-size="11" fill="#0b0b0b">-3.4 <tspan fill="#52514e">(2.4%／5.8～6.5%)</tspan></text>
+<text x="144" y="648" text-anchor="end" font-size="12" fill="#0b0b0b">台塑化</text>
+<rect x="280.2" y="637" width="99.1" height="14" rx="3" fill="#eb6834"><title>台塑化 -4.4</title></rect>
+<text x="385.3" y="648" text-anchor="start" font-size="11" fill="#0b0b0b">-4.4 <tspan fill="#52514e">(1.7%／6.1%)</tspan></text>
+<text x="144" y="672" text-anchor="end" font-size="12" fill="#0b0b0b">華邦電</text>
+<rect x="255.4" y="661" width="123.9" height="14" rx="3" fill="#eb6834"><title>華邦電 -5.5</title></rect>
+<text x="385.3" y="672" text-anchor="start" font-size="11" fill="#0b0b0b">-5.5 <tspan fill="#52514e">(3%／8.5%)</tspan></text>
+<text x="144" y="696" text-anchor="end" font-size="12" fill="#0b0b0b">南亞</text>
+<rect x="248.6" y="685" width="130.7" height="14" rx="3" fill="#eb6834"><title>南亞 -5.8</title></rect>
+<text x="385.3" y="696" text-anchor="start" font-size="11" fill="#0b0b0b">-5.8 <tspan fill="#52514e">(0.5%／6.3%)</tspan></text>
+<text x="144" y="720" text-anchor="end" font-size="12" fill="#0b0b0b">南亞科</text>
+<rect x="203.6" y="709" width="175.8" height="14" rx="3" fill="#eb6834"><title>南亞科 -7.8</title></rect>
+<text x="385.3" y="720" text-anchor="start" font-size="11" fill="#0b0b0b">-7.8 <tspan fill="#52514e">(1.2%／9%)</tspan></text>
+<text x="144" y="744" text-anchor="end" font-size="12" fill="#0b0b0b">南電</text>
+<rect x="196.8" y="733" width="182.5" height="14" rx="3" fill="#eb6834"><title>南電 -8.1</title></rect>
+<text x="385.3" y="744" text-anchor="start" font-size="11" fill="#0b0b0b">-8.1 <tspan fill="#52514e">(3.2%／11.3%)</tspan></text>
+<text x="24" y="798" font-size="11" fill="#8a8984">資料來源：本庫個股筆記推算值，彙整於 統計/WACC與ROIC彙整.md（#待校對）。金融股不適用；未列者為筆記未提供數值。</text>
+</svg>
