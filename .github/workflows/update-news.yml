@@ -35,17 +35,17 @@ jobs:
       - name: 抓新聞並寫入筆記
         env:
           ONLY_CODES: ${{ github.event.inputs.only }}
-        run: python scripts/update_news.py --vault . --days "${{ github.event.inputs.days || '2' }}"
+        run: python 系統/scripts/update_news.py --vault . --days "${{ github.event.inputs.days || '2' }}"
       - name: 更新財務數字（月營收、三率、EPS、股利）
         continue-on-error: true
         env:
           ONLY_CODES: ${{ github.event.inputs.only }}
           SHOW_KEYS: ${{ github.event.inputs.only }}
-        run: python scripts/update_financials.py --vault .
+        run: python 系統/scripts/update_financials.py --vault .
       - name: 篩選異常訊號（Top N 候選、題材雷達）
         continue-on-error: true
         if: ${{ github.event.inputs.only == '' || github.event.inputs.only == null }}
-        run: python scripts/訊號篩選/screen.py --vault . --check-links
+        run: python 系統/scripts/訊號篩選/screen.py --vault . --check-links
       - name: 推回 repo
         run: |
           git config user.name "news-bot"
