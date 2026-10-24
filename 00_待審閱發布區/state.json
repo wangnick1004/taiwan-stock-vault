@@ -5,6 +5,16 @@
       "detail": "轉圖失敗：mmdc 失敗：error: unknown option '-w'",
       "status": "blocked"
     },
+    "1216": {
+      "date": "2026-10-27",
+      "detail": "Claude 呼叫失敗：claude 結束碼 1：{\"duration_api_ms\":0,\"stop_reason\":\"stop_sequence\",\"session_id\":\"ada1cde1-f482-41af-9954-5777e6cce8b7\",\"total_cost_usd\":0,\"usage\":{\"output_tokens_details\":{\"thinking_tokens\":0},\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_sear",
+      "status": "blocked"
+    },
+    "1303": {
+      "date": "2026-10-27",
+      "detail": "轉圖失敗：mmdc 失敗：error: unknown option '-w'",
+      "status": "blocked"
+    },
     "2308": {
       "date": "2026-10-27",
       "detail": "轉圖失敗：mmdc 失敗：error: unknown option '-w'",
@@ -19,6 +29,36 @@
       "date": "2026-10-26",
       "detail": "/Users/wangxuanjie/Library/Mobile Documents/iCloud~md~obsidian/Documents/調研資料/00_待審閱發布區/2026-10-26_2330",
       "status": "draft"
+    },
+    "2345": {
+      "date": "2026-10-27",
+      "detail": "Claude 呼叫失敗：claude 結束碼 1：{\"duration_api_ms\":0,\"stop_reason\":\"stop_sequence\",\"session_id\":\"c9bc4c9a-9192-4555-afbc-67879e2cb0fd\",\"total_cost_usd\":0,\"usage\":{\"output_tokens_details\":{\"thinking_tokens\":0},\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_sear",
+      "status": "blocked"
+    },
+    "2603": {
+      "date": "2026-10-27",
+      "detail": "Claude 呼叫失敗：claude 結束碼 1：{\"duration_api_ms\":0,\"stop_reason\":\"stop_sequence\",\"session_id\":\"7726dcd8-ba8d-4437-9eb1-3a7066e8c482\",\"total_cost_usd\":0,\"usage\":{\"output_tokens_details\":{\"thinking_tokens\":0},\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_sear",
+      "status": "blocked"
+    },
+    "2881": {
+      "date": "2026-10-27",
+      "detail": "Claude 呼叫失敗：claude 結束碼 1：{\"duration_api_ms\":76331,\"stop_reason\":\"stop_sequence\",\"session_id\":\"b2e68a70-abbf-4795-b91c-5cb13ba88de4\",\"total_cost_usd\":0.5613017999999999,\"usage\":{\"input_tokens\":14,\"cache_creation_input_tokens\":48330,\"cache_read_input_tokens\":310528,\"output_tokens\":1965,\"output_tokens_details\":{\"thinking_token",
+      "status": "blocked"
+    },
+    "3008": {
+      "date": "2026-10-27",
+      "detail": "Claude 呼叫失敗：claude 結束碼 1：{\"duration_api_ms\":0,\"stop_reason\":\"stop_sequence\",\"session_id\":\"b8a52f29-2b59-43ed-87be-b4d3b6101140\",\"total_cost_usd\":0,\"usage\":{\"output_tokens_details\":{\"thinking_tokens\":0},\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_sear",
+      "status": "blocked"
+    },
+    "3017": {
+      "date": "2026-10-27",
+      "detail": "Claude 呼叫失敗：claude 結束碼 1：{\"duration_api_ms\":0,\"stop_reason\":\"stop_sequence\",\"session_id\":\"725550e0-7911-4ee3-aa84-30919f2b410a\",\"total_cost_usd\":0,\"usage\":{\"output_tokens_details\":{\"thinking_tokens\":0},\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_sear",
+      "status": "blocked"
+    },
+    "6446": {
+      "date": "2026-10-27",
+      "detail": "Claude 呼叫失敗：claude 結束碼 1：{\"duration_api_ms\":0,\"stop_reason\":\"stop_sequence\",\"session_id\":\"439e900f-4de1-4011-8c0e-799d40fd7a73\",\"total_cost_usd\":0,\"usage\":{\"output_tokens_details\":{\"thinking_tokens\":0},\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_sear",
+      "status": "blocked"
     }
   }
 }
